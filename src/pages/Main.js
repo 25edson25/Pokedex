@@ -1,17 +1,29 @@
 import NavBar from '../components/NavBar'
 import Pokemon from '../components/Pokemon';
 import api from '../resources/api';
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import styled from "styled-components"
 import { Link } from "react-router-dom";
+import UserContext from "../Contexts/context"
 
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 `
+const Button = styled.button`
+    text-align: center;
+    background-color: red;
+    padding: 1rem;
+    margin: 0.5rem;
+
+`
+const PageController = styled.div`
+    text-align: center;
+` 
 
 function Main() {
-
+    const {user, setUser} = useContext(UserContext)
     const [lista, setLista] = useState([])
     const [page, setPage] = useState(1)
 
@@ -47,17 +59,21 @@ function Main() {
             setPage(page-1)
         }
     }   
-
+    console.log(user.name)
 
    return lista[page]? (
     <div>
         <NavBar/>
-        <button onClick={previousPage}>Página Anterior</button>
-        <span>{page}/24</span>
-        <button onClick={nextPage}>Proxima Página</button><br/>
-        <Link to="favourites">Favoritos</Link>
         <Container>
-            {lista.map((e)=><Pokemon name={e.name} kind={e.kind} imgUrl={e.image_url}/>)}
+            <PageController>
+                <Button onClick={previousPage}>Página Anterior</Button>
+                <span>{page}/24</span>
+                <Button onClick={nextPage}>Proxima Página</Button><br/>
+                <Link to="favourites">Favoritos</Link>
+            </PageController>
+        </Container>
+        <Container>
+            {lista.map((e)=><Pokemon username={user.username} name={e.name} kind={e.kind} imgUrl={e.image_url}/>)}
         </Container>
     </div>
    ):

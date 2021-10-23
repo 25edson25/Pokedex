@@ -1,7 +1,4 @@
-import { Redirect } from "react-router"
 import styled from "styled-components"
-import { useState } from "react"
-import { Link } from "react-router-dom"
 
 const Nav = styled.div`
     background: blue;

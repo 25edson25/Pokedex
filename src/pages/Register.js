@@ -19,7 +19,6 @@ function Register () {
             }
             api.post("/users", body)
                 .then((resp)=>{
-                    console.log(resp.data)
                     setUser(resp.data)
                 })
                 .catch((err)=>{

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import api from '../resources/api';
 
 const Card = styled.div`
 display: inline-flex;
@@ -28,21 +27,7 @@ const Text = styled.p`
 
 `
 
-function Pokemon ({username, name, kind, imgUrl}) {
-
-    function addFav(event) {
-        event.preventDefault()
-        async function add() {
-            api.post(`/users/${username}/starred/${name}`)
-                .then((resp)=>{
-                    console.log(resp)
-                })
-                .catch((err)=>{
-                    alert(err)
-                })
-        }
-        add()
-    }
+function PokemonFav ({name, kind, imgUrl}) {
 
     return (
         
@@ -51,10 +36,9 @@ function Pokemon ({username, name, kind, imgUrl}) {
             <Informations>
                 <Text>{name}</Text>
                 {kind}<br/>
-                <button onClick={addFav}>Favorito</button>
             </Informations>
         </Card>
     )
 }
 
-export default Pokemon;
+export default PokemonFav;
