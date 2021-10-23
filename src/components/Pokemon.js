@@ -37,7 +37,6 @@ function Pokemon ({name, kind, imgUrl}) {
                 {kind}
             </Informations>
         </Card>
-    
     )
 }
 

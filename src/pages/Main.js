@@ -3,6 +3,7 @@ import Pokemon from '../components/Pokemon';
 import api from '../resources/api';
 import {useEffect, useState} from 'react'
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display: flex;
@@ -52,7 +53,9 @@ function Main() {
     <div>
         <NavBar/>
         <button onClick={previousPage}>Página Anterior</button>
-        <button onClick={nextPage}>Proxima Página</button>
+        <span>{page}/24</span>
+        <button onClick={nextPage}>Proxima Página</button><br/>
+        <Link to="favourites">Favoritos</Link>
         <Container>
             {lista.map((e)=><Pokemon name={e.name} kind={e.kind} imgUrl={e.image_url}/>)}
         </Container>
