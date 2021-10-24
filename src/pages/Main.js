@@ -26,7 +26,7 @@ const PageController = styled.div`
 ` 
 
 function Main() {
-    const {user, setUser} = useContext(UserContext)
+    const {user} = useContext(UserContext)
     const [lista, setLista] = useState([])
     const [page, setPage] = useState(1)
 

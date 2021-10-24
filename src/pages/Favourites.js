@@ -18,7 +18,7 @@ const BackLink = styled.div`
 function Favourites () {
 
     const [lista, setLista] = useState([])
-    const {user, setUser} = useContext(UserContext)
+    const {user} = useContext(UserContext)
 
     useEffect(()=>{
         async function getPokemons(){
@@ -32,7 +32,7 @@ function Favourites () {
             })
         }
         getPokemons()
-    }, [])
+    }, [user.username])
     
     return (
         <div>
