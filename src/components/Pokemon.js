@@ -2,7 +2,7 @@ import styled from "styled-components"
 import api from '../resources/api';
 
 const Card = styled.div`
-display: inline-flex;
+    display:flex;
     flex-wrap: wrap;
     margin: 2rem;
     width: 10rem;
@@ -20,13 +20,28 @@ const Informations = styled.div`
     width: 100%;
 `
 const Img = styled.img`
-    width: 10rem;
+    width: 13.4rem;
+    background-color: white;
+
 `
 const Text = styled.p`
     font-size: 1.5rem;
     margin: 0rem;
 
 `
+const Button = styled.button`
+    background-color: #FFCC30;
+    border: none;
+    cursor: pointer;
+    margin: 0.5rem;
+
+`
+const ImgContainer = styled.div`
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+` 
 
 function Pokemon ({username, name, kind, imgUrl}) {
 
@@ -46,12 +61,14 @@ function Pokemon ({username, name, kind, imgUrl}) {
 
     return (
         
-        <Card>        
-            <Img src={imgUrl} alt="pokemon"/>
+        <Card>  
+            <ImgContainer>      
+                <Img src={imgUrl} alt="pokemon"/>
+            </ImgContainer>
             <Informations>
                 <Text>{name}</Text>
-                {kind}<br/>
-                <button onClick={addFav}>Favorito</button>
+                {kind.replace(";"," ")}<br/>
+                <Button onClick={addFav}>Favoritar</Button>
             </Informations>
         </Card>
     )

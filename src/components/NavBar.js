@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Nav = styled.div`
-    background: blue;
+    background: #145FAE;
     padding: 0.5rem;
     font-size: 1.3rem;
 `

@@ -6,6 +6,8 @@ import styled from "styled-components"
 import { Link } from "react-router-dom";
 import UserContext from "../Contexts/context"
 
+document.body.style = 'background: #80BEFF;';
+
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -13,9 +15,10 @@ const Container = styled.div`
 `
 const Button = styled.button`
     text-align: center;
-    background-color: red;
+    background-color: #DD2525;
     padding: 1rem;
     margin: 0.5rem;
+    border-radius: 1rem;
 
 `
 const PageController = styled.div`

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Card = styled.div`
-display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     margin: 2rem;
     width: 10rem;
@@ -26,16 +26,24 @@ const Text = styled.p`
     margin: 0rem;
 
 `
+const ImgContainer = styled.div`
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+` 
 
 function PokemonFav ({name, kind, imgUrl}) {
 
     return (
         
-        <Card>        
-            <Img src={imgUrl} alt="pokemon"/>
+        <Card>
+            <ImgContainer>
+                <Img src={imgUrl} alt="pokemon"/>
+            </ImgContainer>
             <Informations>
                 <Text>{name}</Text>
-                {kind}<br/>
+                {kind.replace(";"," ")}<br/>
             </Informations>
         </Card>
     )
